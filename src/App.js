@@ -1,25 +1,35 @@
 import React from "react";
 import "./App.css";
-import LocationContextProvider from "./_context/locationContext";
-import CurrentWeatherContextProvider from "./_context/currentWeatherContext";
-import { Typography } from "@material-ui/core";
-import AppContainer from "./container/appContainer";
+import Home from "./Home.js";
+import About from "./Aboutus.js";
+import Calander from "./calander";
+import Hour from "./Hourly";
+import { Switch, Route, Link } from "react-router-dom";
 
 class App extends React.Component {
   render() {
     return (
-      <div className="App">
-        <Typography variant='h4'>Weather App
-         <a href="https://github.com/CHANDRAMOHANnegi/weather" target="_blank">
-            <img style={{ height: '25px', width: '25px', marginLeft: '10px' }}
-              src={require("./assets/github.png")} alt="github" />
-          </a>
-        </Typography>
-        <LocationContextProvider>
-          <CurrentWeatherContextProvider>
-            <AppContainer />
-          </CurrentWeatherContextProvider>
-        </LocationContextProvider>
+      <div>
+        <div className="navbar">
+          <Link className="CustomLink" to="/">
+            Dashboard
+          </Link>
+          <Link className="CustomLink" to="/hourly">
+            Weather/Hour
+          </Link>
+          <Link className="CustomLink" to="/calander">
+            Calander
+          </Link>
+          <Link className="CustomLink" to="/about">
+            About-us
+          </Link>
+        </div>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/about" component={About} />
+          <Route path="/calander" component={Calander} />
+          <Route path="/hourly" component={Hour} />
+        </Switch>
       </div>
     );
   }
