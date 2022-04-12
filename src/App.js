@@ -4,6 +4,7 @@ import Home from "./Home.js";
 import About from "./Aboutus.js";
 import Calander from "./calander";
 import Hour from "./Hourly";
+import Cities from "./CitiesWeather.js";
 import { Switch, Route, Link } from "react-router-dom";
 
 class App extends React.Component {
@@ -17,6 +18,9 @@ class App extends React.Component {
           <Link className="CustomLink" to="/hourly">
             Weather/Hour
           </Link>
+          <Link className="CustomLink" to="/city">
+            Weather/city
+          </Link>
           <Link className="CustomLink" to="/calander">
             Calander
           </Link>
@@ -29,6 +33,7 @@ class App extends React.Component {
           <Route path="/about" component={About} />
           <Route path="/calander" component={Calander} />
           <Route path="/hourly" component={Hour} />
+          <Route path="/city" component={Cities} />
         </Switch>
       </div>
     );
